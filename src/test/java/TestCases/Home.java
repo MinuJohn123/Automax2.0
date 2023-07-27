@@ -6,7 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Home extends Baseclass   {
+public class Home extends BaseTest   {
     private LoginPage loginPage;
     @BeforeClass
     public void init() {
@@ -17,14 +17,14 @@ public class Home extends Baseclass   {
     @BeforeClass
     public void login() {
         //open application URL
-        webDriver.get(System.getProperty("target.homepage"));
+        webDriver.get().get(System.getProperty("target.homepage"));
         // initialize an object from login page
-        loginPage = new LoginPage(webDriver);
+        loginPage = new LoginPage(webDriver.get());
         // login with username and password provided from test.properties file
 
         loginPage.Login(System.getProperty("account.username"),
                 System.getProperty("account.password"));
-        System.out.println("Inside Leave req");
+
     }
 
     @Test(priority = 1)

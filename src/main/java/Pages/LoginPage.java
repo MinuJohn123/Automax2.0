@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class LoginPage {
 
     @FindBy(xpath="//input[@placeholder='User Name']")
@@ -21,7 +23,7 @@ public class LoginPage {
     public  LoginPage(WebDriver driver)
     {
         PageFactory.initElements(driver,this);
-        wait = new WebDriverWait(driver, 40);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(60));
     }
 
     public void Login(String username, String password) {
