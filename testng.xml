@@ -24,7 +24,11 @@
                 <include name="login"/>
             </methods>
         </class>
-
+            <class name="TestCases.Edit_user_details">
+                <methods>
+                    <include name="edit_user"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
