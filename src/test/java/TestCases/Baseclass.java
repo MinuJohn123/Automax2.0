@@ -23,10 +23,12 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+public class Baseclass {
 
     public static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
     public static WebDriverWait webDriverWait;
@@ -41,22 +43,20 @@ public class BaseTest {
             System.out.println("Executing on Chrome");
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("--disable-notifications");
+
             webDriver.set(new ChromeDriver(options));
         } else if (browser.equalsIgnoreCase("edge")) {
             System.out.println("Executing on Edge");
             WebDriverManager.edgedriver().setup();
             EdgeOptions options = new EdgeOptions();
-            options.setCapability("ms:edgeOptions", "{ \"args\": [\"--remote-allow-origins=*\"], \"extensions\": [] }");
-            webDriver.set(new EdgeDriver(options));
-        }
 
-        else {
+            webDriver.set(new EdgeDriver(options));
+        } else {
             throw new IllegalArgumentException("The Browser Type is Undefined");
         }
 
         webDriver.get().manage().window().maximize();
-        webDriver.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        webDriver.get().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         webDriverWait = new WebDriverWait(webDriver.get(), Duration.ofSeconds(60));
         loadPropertiesFile();
 
@@ -64,6 +64,7 @@ public class BaseTest {
         extent = new ExtentReports();
         extent.attachReporter(sparkreport);
     }
+
 
     protected void loadPropertiesFile() {
         // load property file (test.properties)

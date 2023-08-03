@@ -26,7 +26,7 @@ public class LoginPage {
         wait = new WebDriverWait(driver, Duration.ofSeconds(60));
     }
 
-    public void Login(String username, String password) {
+    public void Login(String username, String password) throws InterruptedException {
 
         wait.until(ExpectedConditions.or(
                 ExpectedConditions.visibilityOf(userNameTxt),
@@ -38,6 +38,10 @@ public class LoginPage {
         this.passWordTxt.sendKeys(password);
 
         this.loginBtn.click();
+
+        Thread.sleep(2000);
+
+
     }
 
 }
