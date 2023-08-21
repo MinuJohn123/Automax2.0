@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite"  parallel="tests" thread-count="2">
-        <test verbose="2" preserve-order="true" name="Automax2">
+      <!--  <test verbose="2" preserve-order="true" name="Automax2">
         <parameter name="browser" value="chrome"/>
             <classes>
             <class name="TestCases.Home">
@@ -14,10 +14,10 @@
                 <include name="edit_user"/>
                 </methods>
                 </class>
-         </classes>
-    </test>
+         </classes>-->
+
     <test verbose="2" preserve-order="true" name="Automax">
-        <parameter name="browser" value="edge"/>
+        <parameter name="browser" value="chrome"/>
         <classes>
         <class name="TestCases.Home">
             <methods>
@@ -26,7 +26,19 @@
         </class>
             <class name="TestCases.Edit_user_details">
                 <methods>
-                    <include name="edit_user"/>
+                    <exclude name="edit_user"/>
+                    <exclude name="inviteNewuser_Test"/>
+                    <exclude name="deleteNewUser_Test"/>
+                </methods>
+            </class>
+            <class name="TestCases.InviteNewUser_Test">
+                <methods>
+                    <include name="inviteNewuser_Test"/>
+                </methods>
+            </class>
+            <class name="TestCases.DeleteNewUser_Test">
+                <methods>
+                    <include name="deleteNewUser_Test"/>
                 </methods>
             </class>
         </classes>
