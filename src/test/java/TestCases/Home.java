@@ -4,6 +4,7 @@ import Heplers.JsonReader;
 
 import Pages.LoginPage;
 
+import Pages.Userpage;
 import TestCases.Baseclass;
 import com.google.gson.JsonObject;
 import net.bytebuddy.build.Plugin;
@@ -21,6 +22,7 @@ import com.aventstack.extentreports.ExtentTest;
 
 public class Home extends Baseclass {
     private LoginPage loginPage;
+    private Userpage userpg;
 
     @BeforeClass
     public void init() {
@@ -41,6 +43,17 @@ public class Home extends Baseclass {
 
         loginPage.Login(System.getProperty("account.username"),
                 System.getProperty("account.password"));
+
+    }
+    @Test(priority=5)
+    public void Namesearched() throws InterruptedException
+    {
+
+
+        userpg =new Userpage(webDriver.get());
+        userpg.namesearch() ;
+
+
 
     }
 

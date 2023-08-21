@@ -7,6 +7,7 @@
             <class name="TestCases.Home">
             <methods>
             <include name="login"/>
+              <include name="Namesearched"/>
             </methods>
             </class>
                 <class name="TestCases.Edit_user_details">
@@ -22,11 +23,13 @@
         <class name="TestCases.Home">
             <methods>
                 <include name="login"/>
+                <include name="Namesearched"/>
             </methods>
         </class>
             <class name="TestCases.Edit_user_details">
                 <methods>
                     <exclude name="edit_user"/>
+
                     <exclude name="inviteNewuser_Test"/>
                     <exclude name="deleteNewUser_Test"/>
                 </methods>
