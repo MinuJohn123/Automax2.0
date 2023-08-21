@@ -21,6 +21,8 @@ public class Userpage {
 
     JavascriptExecutor js;
     // @FindBy(xpath="//*[text()=' User Management ']")
+    @FindBy(xpath = "//a[normalize-space()='Home']")
+    private WebElement HomeBtn;
     @FindBy(xpath="//a[normalize-space()='User Management']")
     private WebElement usermngmod ;
 
@@ -56,6 +58,8 @@ public class Userpage {
         Thread.sleep(1000);
         Assert.assertEquals(actual,expected);
         System.out.println("First name search is done succesfully ");
+        wait.until(ExpectedConditions.visibilityOf(HomeBtn));
+        js.executeScript("arguments[0].click()", HomeBtn);
 
     }
 
