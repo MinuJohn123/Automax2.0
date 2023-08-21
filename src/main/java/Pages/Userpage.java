@@ -43,8 +43,8 @@ public class Userpage {
     public void namesearch() throws InterruptedException
     {
 
-        // wait.until(ExpectedConditions.elementToBeClickable(usermngmod));
-        //js.executeScript("arguments[0].click()", usermngmod);
+         wait.until(ExpectedConditions.elementToBeClickable(usermngmod));
+        js.executeScript("arguments[0].click()", usermngmod);
         wait.until(ExpectedConditions.elementToBeClickable(search));
         js.executeScript("arguments[0].click()", search);
         search.sendKeys("Syed");
