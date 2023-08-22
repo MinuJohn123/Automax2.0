@@ -19,7 +19,7 @@
          </classes>-->
 
     <test verbose="2" preserve-order="true" name="Automax">
-        <parameter name="browser" value="edge"/>
+        <parameter name="browser" value="chrome"/>
         <classes>
         <class name="TestCases.Home">
             <methods>
