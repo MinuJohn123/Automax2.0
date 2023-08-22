@@ -1,6 +1,7 @@
 package Pages;
 
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
+import java.util.List;
 
 
 public class Userpage {
@@ -20,7 +22,8 @@ public class Userpage {
 
 
     JavascriptExecutor js;
-    // @FindBy(xpath="//*[text()=' User Management ']")
+
+//Firstname search
     @FindBy(xpath = "//a[normalize-space()='Home']")
     private WebElement HomeBtn;
     @FindBy(xpath="//a[normalize-space()='User Management']")
@@ -30,9 +33,33 @@ public class Userpage {
     @FindBy(xpath="/html/body/app-root/ng-component/div/div/div/div/div/app-user-list/div[1]/div/div[2]/div[2]/div/table/thead/tr/th[1]/div/input")
     private WebElement search;
 
-
     @FindBy(xpath="//*[starts-with(text(),' Syed')]")
     private WebElement namefirst;
+
+    //Add user Nationality
+  @FindBy(xpath="/html/body/app-root/ng-component/div/div/div/app-sidebar/div/app-sidebar-menu/div/div/div/div[1]/div/div[2]/span/span[2]")
+private WebElement settingsicn;
+
+
+  @FindBy(xpath="/html/body/app-root/ng-component/div/div/div/app-sidebar/div/app-sidebar-menu/div/div/div/div[1]/div/div[2]/div/div[4]/a/span[2]")
+  private WebElement natnbtn;
+
+  @FindBy(xpath="//button[text()=' Add User Nationality ']")
+  private WebElement addusrntn;
+
+  @FindBy(xpath = "//input[@id=\"nationalityName\"]")
+  private WebElement natnnameeng;
+
+  @FindBy(xpath = "//button[text()=' Save ']")
+  private WebElement savebtn;
+  @FindBy(xpath = "//input[@placeholder='Search']")
+  private WebElement srchicn;
+
+    @FindBy(tagName = "table")
+    private WebElement Table;
+
+
+
     //public  UserPage(WebDriver driver)
     public Userpage(WebDriver driver)
     {
@@ -60,6 +87,40 @@ public class Userpage {
         System.out.println("First name search is done succesfully ");
         wait.until(ExpectedConditions.visibilityOf(HomeBtn));
         js.executeScript("arguments[0].click()", HomeBtn);
+
+    }
+
+    public void usernation()  throws InterruptedException
+    {
+        wait.until(ExpectedConditions.elementToBeClickable(usermngmod));
+        js.executeScript("arguments[0].click()", usermngmod);
+        wait.until(ExpectedConditions.elementToBeClickable(settingsicn));
+        js.executeScript("arguments[0].click()", settingsicn);
+        wait.until(ExpectedConditions.elementToBeClickable(natnbtn));
+        js.executeScript("arguments[0].click()", natnbtn);
+        wait.until(ExpectedConditions.elementToBeClickable(addusrntn));
+        js.executeScript("arguments[0].click()", addusrntn);
+        wait.until(ExpectedConditions.elementToBeClickable(natnnameeng));
+        js.executeScript("arguments[0].click()", natnnameeng);
+      natnnameeng.sendKeys("India");
+        wait.until(ExpectedConditions.elementToBeClickable(savebtn));
+        js.executeScript("arguments[0].click()", savebtn);
+        wait.until(ExpectedConditions.elementToBeClickable(srchicn));
+        js.executeScript("arguments[0].click()", srchicn);
+        srchicn.sendKeys("India");
+       List<WebElement> tdElements= Table.findElements(By.tagName("td"));
+        if (tdElements.size() > 0) {
+            System.out.println("Add user Nationality is added");
+        } else {
+            System.out.println("Add user Nationality is not  added");
+        }
+        wait.until(ExpectedConditions.visibilityOf(HomeBtn));
+        js.executeScript("arguments[0].click()", HomeBtn);
+
+
+
+
+
 
     }
 

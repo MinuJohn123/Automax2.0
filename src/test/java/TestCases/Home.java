@@ -57,5 +57,11 @@ public class Home extends Baseclass {
 
     }
 
+    @Test(priority=6)
+public void Addusernation()  throws InterruptedException
+    {
+        userpg =new Userpage(webDriver.get());
+        userpg.usernation();
+    }
 
 }

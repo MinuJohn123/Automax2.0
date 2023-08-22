@@ -8,6 +8,7 @@
             <methods>
             <include name="login"/>
               <include name="Namesearched"/>
+                  <include name="Addusernation"/>
             </methods>
             </class>
                 <class name="TestCases.Edit_user_details">
@@ -24,14 +25,15 @@
             <methods>
                 <include name="login"/>
                 <include name="Namesearched"/>
+                <include name="Addusernation"/>
             </methods>
         </class>
             <class name="TestCases.Edit_user_details">
                 <methods>
-                    <exclude name="edit_user"/>
+                    <include name="edit_user"/>
 
-                    <exclude name="inviteNewuser_Test"/>
-                    <exclude name="deleteNewUser_Test"/>
+                    <include name="inviteNewuser_Test"/>
+                    <include name="deleteNewUser_Test"/>
                 </methods>
             </class>
             <class name="TestCases.InviteNewUser_Test">
