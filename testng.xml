@@ -19,7 +19,7 @@
          </classes>-->
 
     <test verbose="2" preserve-order="true" name="Automax">
-        <parameter name="browser" value="chrome"/>
+        <parameter name="browser" value="edge"/>
         <classes>
         <class name="TestCases.Home">
             <methods>
@@ -32,8 +32,8 @@
                 <methods>
                     <include name="edit_user"/>
 
-                    <include name="inviteNewuser_Test"/>
-                    <include name="deleteNewUser_Test"/>
+                    <exclude name="inviteNewuser_Test"/>
+                    <exclude name="deleteNewUser_Test"/>
                 </methods>
             </class>
             <class name="TestCases.InviteNewUser_Test">
