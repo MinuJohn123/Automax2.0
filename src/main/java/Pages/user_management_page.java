@@ -80,7 +80,7 @@ public class user_management_page {
     @FindBy(xpath = "//input[@placeholder='Report To']//following::span")
     private WebElement reportTo_NewUser;
 
-    @FindBy(xpath = "//li[14]")
+    @FindBy(xpath = "(.//*[normalize-space(text()) and normalize-space(.)='Jack'])[1]/following::li[1]")
     private WebElement reportTo_NewUserDp;
 
     @FindBy(xpath = "//input[@placeholder='Nationality']//following::span")
@@ -153,9 +153,6 @@ public class user_management_page {
 
     public void inviteNewUser() {
 
-//        wait.until(ExpectedConditions.visibilityOf(HomeBtn));
-//        js.executeScript("arguments[0].click()", HomeBtn);
-
         wait.until(ExpectedConditions.visibilityOf(user_management));
         js.executeScript("arguments[0].click()", user_management);
 
@@ -196,8 +193,8 @@ public class user_management_page {
         js.executeScript("arguments[0].click()", Nationality_NewUserDp);
         wait.until(ExpectedConditions.visibilityOf(confirmBtn));
         js.executeScript("arguments[0].click()", confirmBtn);
-        //Assert new user
 
+        //Assert new user
         wait.until(ExpectedConditions.visibilityOf(search_button));
         js.executeScript("arguments[0].click()", search_button);
         search_button.sendKeys("Abinesh");
