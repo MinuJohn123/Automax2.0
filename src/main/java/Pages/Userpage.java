@@ -94,11 +94,13 @@ private WebElement settingsicn;
         System.out.println("First name search is done succesfully ");
         wait.until(ExpectedConditions.visibilityOf(HomeBtn));
         js.executeScript("arguments[0].click()", HomeBtn);
+        Thread.sleep(2000);
 
     }
 
     public void usernation()  throws InterruptedException
     {
+        Thread.sleep(2000);
         wait.until(ExpectedConditions.elementToBeClickable(usermngmod));
         js.executeScript("arguments[0].click()", usermngmod);
         wait.until(ExpectedConditions.elementToBeClickable(settingsicn));
@@ -123,6 +125,7 @@ private WebElement settingsicn;
         }
         wait.until(ExpectedConditions.visibilityOf(HomeBtn));
         js.executeScript("arguments[0].click()", HomeBtn);
+        Thread.sleep(2000);
 
 
 
