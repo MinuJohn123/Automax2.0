@@ -51,7 +51,7 @@ public class Home extends Baseclass {
 
 
         userpg =new Userpage(webDriver.get());
-        userpg.namesearch() ;
+        userpg.namesearch();
 
 
 
@@ -62,6 +62,12 @@ public void Addusernation()  throws InterruptedException
     {
         userpg =new Userpage(webDriver.get());
         userpg.usernation();
+    }
+    @Test(priority=7)
+    public void Editusrntn() throws InterruptedException
+    {
+        userpg =new Userpage(webDriver.get());
+        userpg.usrntnedit();
     }
 
 }

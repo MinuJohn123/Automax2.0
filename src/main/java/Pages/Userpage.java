@@ -57,6 +57,13 @@ private WebElement settingsicn;
 
     @FindBy(tagName = "table")
     private WebElement Table;
+    //Edit usr Natinality
+    @FindBy(xpath="/html/body/app-root/ng-component/div/div/div/div/div/app-nationality/div[1]/div/div[3]/div/table/tbody/tr[1]/td[4]/a[1]")
+    private WebElement editbtn;
+
+    @FindBy(xpath="//input[@id='nationalityName']")
+    private WebElement ntnedt;
+
 
 
 
@@ -123,5 +130,44 @@ private WebElement settingsicn;
 
 
     }
+    public void usrntnedit()  throws InterruptedException
+    {
+        wait.until(ExpectedConditions.elementToBeClickable(usermngmod));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", usermngmod);
+        wait.until(ExpectedConditions.elementToBeClickable(settingsicn));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", settingsicn);
+        wait.until(ExpectedConditions.elementToBeClickable(natnbtn));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", natnbtn);
+        wait.until(ExpectedConditions.elementToBeClickable(editbtn));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", editbtn);
+        wait.until(ExpectedConditions.elementToBeClickable(ntnedt));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", ntnedt);
+        ntnedt.sendKeys("cde");
+        wait.until(ExpectedConditions.elementToBeClickable(savebtn));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", savebtn);
+        wait.until(ExpectedConditions.elementToBeClickable(srchicn));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", srchicn);
+        srchicn.sendKeys("abcde");
+        Thread.sleep(2000);
+        List<WebElement> tdElements= Table.findElements(By.tagName("td"));
+        if (tdElements.size() > 0) {
+            System.out.println("User Nationality is edited suceesfully");
+        } else {
+            System.out.println("User Nationality is not  edited ");
+        }
+        wait.until(ExpectedConditions.visibilityOf(HomeBtn));
+        js.executeScript("arguments[0].click()", HomeBtn);
+
+
+    }
+
+
 
 }
