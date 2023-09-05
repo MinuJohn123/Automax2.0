@@ -1,23 +1,42 @@
 package TestCases;
 
 import Heplers.JsonReader;
+
 import Pages.LoginPage;
+
+import Pages.Userpage;
+import TestCases.Baseclass;
+import com.google.gson.JsonObject;
+import net.bytebuddy.build.Plugin;
+import org.apache.hc.core5.reactor.Command;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public class Home extends BaseTest   {
+import static TestCases.Baseclass.extent;
+import static TestCases.Baseclass.webDriver;
+
+import com.aventstack.extentreports.ExtentTest;
+
+
+public class Home extends Baseclass {
     private LoginPage loginPage;
+    private Userpage userpg;
+
     @BeforeClass
     public void init() {
         JsonReader jsonReader = new JsonReader();
 
     }
 
-    @BeforeClass
-    public void login() {
+    @Test(priority = 1)
+    public void login() throws InterruptedException {
+        test = extent.createTest("LOGIN");
         //open application URL
         webDriver.get().get(System.getProperty("target.homepage"));
+        // Reload the page
+        webDriver.get().navigate().refresh();
         // initialize an object from login page
         loginPage = new LoginPage(webDriver.get());
         // login with username and password provided from test.properties file
@@ -26,10 +45,29 @@ public class Home extends BaseTest   {
                 System.getProperty("account.password"));
 
     }
+    @Test(priority=5)
+    public void Namesearched() throws InterruptedException
+    {
 
-    @Test(priority = 1)
-    public void HomeLoad() throws InterruptedException {
-        System.out.println("Welcome to Automax 2.O");
+
+        userpg =new Userpage(webDriver.get());
+        userpg.namesearch();
+
+
+
+    }
+
+    @Test(priority=6)
+public void Addusernation()  throws InterruptedException
+    {
+        userpg =new Userpage(webDriver.get());
+        userpg.usernation();
+    }
+    @Test(priority=7)
+    public void Editusrntn() throws InterruptedException
+    {
+        userpg =new Userpage(webDriver.get());
+        userpg.usrntnedit();
     }
 
 }
