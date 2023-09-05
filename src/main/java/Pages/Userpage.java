@@ -64,6 +64,17 @@ private WebElement settingsicn;
     @FindBy(xpath="//input[@id='nationalityName']")
     private WebElement ntnedt;
 
+    //Delete user Nationality
+    //@FindBy(xpath="/html/body/app-root/ng-component/div/div/div/div/div/app-nationality/div[1]/div/div[3]/div/table/tbody/tr[2]/td[4]/a[2]")
+    @FindBy(xpath="/html/body/app-root/ng-component/div/div/div/div/div/app-nationality/div[1]/div/div[3]/div/table/tbody/tr[8]/td[4]/a[2]")
+    private WebElement delbtn;
+
+
+
+    @FindBy(xpath="//*[text()='Confirm']")
+    private WebElement confrmbtn;
+
+
 
 
 
@@ -157,7 +168,7 @@ private WebElement settingsicn;
         wait.until(ExpectedConditions.elementToBeClickable(srchicn));
         Thread.sleep(2000);
         js.executeScript("arguments[0].click()", srchicn);
-        srchicn.sendKeys("abcde");
+        srchicn.sendKeys("cde");
         Thread.sleep(2000);
         List<WebElement> tdElements= Table.findElements(By.tagName("td"));
         if (tdElements.size() > 0) {
@@ -170,6 +181,45 @@ private WebElement settingsicn;
 
 
     }
+
+    public void usrntndel()  throws InterruptedException
+    {
+        wait.until(ExpectedConditions.elementToBeClickable(usermngmod));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", usermngmod);
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(settingsicn));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", settingsicn);
+        wait.until(ExpectedConditions.elementToBeClickable(natnbtn));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", natnbtn);
+        wait.until(ExpectedConditions.elementToBeClickable(delbtn));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", delbtn);
+        wait.until(ExpectedConditions.elementToBeClickable(confrmbtn));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", confrmbtn);
+        wait.until(ExpectedConditions.elementToBeClickable(srchicn));
+        Thread.sleep(2000);
+        js.executeScript("arguments[0].click()", srchicn);
+        srchicn.sendKeys("Indian");
+        Thread.sleep(2000);
+        List<WebElement> tdElements= Table.findElements(By.tagName("td"));
+        if (tdElements.size() >0) {
+            System.out.println("User Nationality is  deleted");
+        } else {
+            System.out.println("User Nationality is not  deleted ");
+        }
+        wait.until(ExpectedConditions.visibilityOf(HomeBtn));
+        js.executeScript("arguments[0].click()", HomeBtn);
+        Thread.sleep(2000);
+
+
+    }
+
+
+
 
 
 

@@ -45,7 +45,7 @@ public class Home extends Baseclass {
                 System.getProperty("account.password"));
 
     }
-    @Test(priority=5)
+    @Test(priority=10)
     public void Namesearched() throws InterruptedException
     {
 
@@ -57,17 +57,24 @@ public class Home extends Baseclass {
 
     }
 
-    @Test(priority=6)
+    @Test(priority=11)
 public void Addusernation()  throws InterruptedException
     {
         userpg =new Userpage(webDriver.get());
         userpg.usernation();
     }
-    @Test(priority=7)
+    @Test(priority=12)
     public void Editusrntn() throws InterruptedException
     {
         userpg =new Userpage(webDriver.get());
         userpg.usrntnedit();
+    }
+
+    @Test(priority=13)
+    public void Deleteusrntn() throws InterruptedException
+    {
+        userpg=new Userpage(webDriver.get());
+        userpg.usrntndel();
     }
 
 }

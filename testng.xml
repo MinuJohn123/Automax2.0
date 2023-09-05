@@ -27,6 +27,7 @@
                 <include name="Namesearched"/>
                 <include name="Addusernation"/>
                 <include name="Editusrntn"/>
+                <include name="Deleteusrntn"/>
             </methods>
         </class>
             <class name="TestCases.Edit_user_details">
